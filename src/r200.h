@@ -11,10 +11,10 @@ namespace rsimpl
 {
     class r200_camera final : public ds::ds_device
     {
-
+    std::shared_ptr<uvc::device> device_;
     public:
         r200_camera(std::shared_ptr<uvc::device> device, const static_device_info & info);
-        ~r200_camera() {};
+        ~r200_camera();
 
         virtual void start_fw_logger(char fw_log_op_code, int grab_rate_in_ms, std::timed_mutex& mutex) override;
         virtual void stop_fw_logger() override;
